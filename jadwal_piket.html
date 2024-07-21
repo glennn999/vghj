@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Piket - UNESCO</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right,#BDE0FE, #BDE0FE); /* Gradient background */
+            color: #fff; /* White text color for better contrast */
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #40534C; /* Semi-transparent black background */
+            padding: 10px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+        .menu-toggle .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: rgb(232, 228, 228);
+        }
+        .piket-section {
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+            padding: 40px;
+            border-radius: 10px;
+            position: relative;
+        }
+        .piket-table-container {
+            overflow-x: scroll;
+        }
+        .piket-table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #000000; /* Black text color for table */
+        }
+        .piket-table th, .piket-table td {
+            border: 2px solid #000000;
+            padding: 7px;
+            text-align: left;
+        }
+        .piket-table th {
+            background: linear-gradient(to right, #93d6f8, #93d6f8); /* Gradient background */
+        }
+        .piket-table td {
+            background: linear-gradient(to right, #93d6f8, #93d6f8); /* Gradient background */
+        }
+        .scroll-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(69, 120, 148, 0.408);
+            color: #000000;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .scroll-button.left {
+            left: 0;
+        }
+        .scroll-button.right {
+            right: 0;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                text-align: center;
+            }
+            nav ul.active {
+                display: block;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>UNESCO</h1>
+            <nav>
+                <ul id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="roster.html">Roster Pelajaran</a></li>
+                    <li><a href="jadwal_piket.html">Jadwal Piket</a></li>
+                </ul>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="piket-section">
+            <h2>Jadwal Piket</h2>
+            <button class="scroll-button left" onclick="scrollTable(-1)">&#9664;</button>
+            <button class="scroll-button right" onclick="scrollTable(1)">&#9654;</button>
+            <div class="piket-table-container">
+                <table class="piket-table">
+                    <thead>
+                        <tr>
+                            <th>Hari</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Senin</td>
+                            <td>Enrico Yaurent</td>
+                            <td>Syahdan Ibnu Khalis</td>
+                            <td>Cynthia Devi Gotama</td>
+                            <td>Cheverly Vamiel Jennifer</td>
+                            <td>Lavinia Luk</td>
+                        </tr>
+                        <tr>
+                            <td>Selasa</td>
+                            <td>Steven</td>
+                            <td>Valentino Darma Tandiono</td>
+                            <td>Syahira Fitria Br. Hutapea</td>
+                            <td>Velisia Harsono</td>
+                            <td>Abel Liya Putri</td>
+                        </tr>
+                        <tr>
+                            <td>Rabu</td>
+                            <td>Erick Huang</td>
+                            <td>Bun Kalvin Wijaya</td>
+                            <td>Jesslyn Juliarso</td>
+                            <td>Kezya Laqueenta Tanner</td>
+                            <td>Ricvany Endi Khe</td>
+                        </tr>
+                        <tr>
+                            <td>Kamis</td>
+                            <td>Glenn Austyn</td>
+                            <td>Nico Alvando</td>
+                            <td>Plora Arika</td>
+                            <td>Nadia Keysia Alhamdana S</td>
+                            <td>Stevanie Clarence</td>
+                        </tr>
+                        <tr>
+                            <td>Jumat</td>
+                            <td>Heinz Pradhana Luviady</td>
+                            <td>Freanderlyn Wijaya</td>
+                            <td>Khalisya Khairani Pohan</td>
+                            <td>Florencia Linksy Natawijaya</td>
+                            <td>Fery Salim</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function scrollTable(direction) {
+            const container = document.querySelector('.piket-table-container');
+            const scrollAmount = container.clientWidth / 2 * direction;
+            container.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        document.getElementById("mobile-menu").addEventListener("click", function() {
+            var navLinks = document.getElementById("nav-links");
+            navLinks.classList.toggle("active");
+        });
+    </script>
+</body>
+</html>
